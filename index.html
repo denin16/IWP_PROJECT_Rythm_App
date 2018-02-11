@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="css/sidebar.css">
+  </head>
+  <body>
+    
+
+    
+     <!-- upper bar -->
+    
+    <div class="row upper-bar">
+        <!-- logo -->
+        <div class="col-lg-3 text-center" id="website-logo">
+            <h2>Rhythm</h2>
+        </div>
+        
+        <!-- 
+        <div class="col-lg-1" >
+            
+        </div>
+        
+        -->
+        <div class="col-lg-6 text-center" >
+            <form>
+                <div class="form-group row">
+                    <div class="col-lg-1"></div>
+                        <div class="col-lg-10">
+                            <input type="search" id="search-bar" placeholder="Browse music, artists and much more..." class="form-control">
+                        </div>
+                    <div class="col-lg-1"></div>
+                </div>
+            </form>
+        </div>
+        
+                    
+        <div class="col-lg-3 user-info text-center">
+            <!-- User Info -->
+            <!-- Example split danger button -->
+            <div class="btn-group user-button">
+              <a type="button" class="user-button-inner">User Name</a>
+              <a type="button" class="dropdown-toggle dropdown-toggle-split user-button-inner" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="sr-only">Toggle Dropdown</span>
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Settings</a>
+                <a class="dropdown-item" href="#">Logout</a>
+              </div>
+            </div>
+        </div>
+    
+    </div>
+    
+    
+    <!-- Main section -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                    <li><a href="#"><i class="fas fa-music"></i> Songs</a></li>
+                    <li><a href="#"><i class="far fa-user"></i> Artists</a></li>
+                    <li><a href="#"><i class="far fa-image"></i> Albums</a></li>
+                    <li><a href="#"><i class="fas fa-headphones"></i> Genres</a></li>
+                    <li><a href="#"><i class="fas fa-indent"></i> Playlists</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Favourites</a></li>
+                    <li>
+                        <div id="contact-about" class="text-center">
+                            <h4><a href="#"><i class="fas fa-phone" style="font-size:30px;"></i><br><br>Contact Us</a></h4>
+                            <br>
+                            <h4><a href="#"><i class="fas fa-users" style="font-size:30px;"></i><br><br>About Us</a></h4>
+                        </div>
+                    </li>
+                </ul>
+        </div>
+
+        <!-- Page content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <!-- main browsing window -->
+                <div class="row">
+                    <!-- center section of browsing window -->
+                    <div class="col-lg-9">
+                        <!-- upper navigation -->
+                        <div class="row upper-navigation" style="padding: 10px;">
+                            <div class="col-lg-1 up-navigation" >
+                                <a href="#" id="menu-toggle"><i class="fas fa-align-left" style="font-size:20px; color:#fff; margin: 0px;"></i></a>
+                            </div>
+                            <div class="col-lg-9 up-navigation" >
+                                <div class="row text-center">
+                                    <div class="col-lg-4">
+                                        <span><i class="far fa-snowflake"></i> New</span>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span><i class="fas fa-home"></i> Home</span>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <span><i class="fas fa-globe"></i> Discover</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-2 up-navigation">
+                                <div class="row text-center">
+                                    <div class="col-lg-6">
+                                        <span>
+                                            <i class="fas fa-angle-left"></i>
+                                        </span>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <span>
+                                            <i class="fas fa-angle-right"></i>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- main content browsing window -->
+                        <div class="container text-center">
+                            <div class="row">
+                            
+                                <h1>Main Browsing Window</h1>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- music player window -->
+                    <div class="col-lg-3 player-side">
+                        <div class="container-fluid">
+                            <div class="row" style="padding: 5px;">
+                                <div class="col-lg-12">
+                                    <div class="album-art">
+                                        <img class="img-responsive img-fluid album-art-img" src="images/music-1874621_640.jpg" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row player-control-1">
+                                <div class="col-lg-4 player-icons">
+                                    <span><i class="fas fa-step-backward"></i></span>
+                                </div>
+                                <div class="col-lg-4 player-icons">
+                                    <span><i class="far fa-play-circle"></i></span>
+                                </div>
+                                <div class="col-lg-4 player-icons">
+                                    <span><i class="fas fa-step-forward"></i></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row player-control-1">
+                            <h3>Here comes the volume Control</h3>
+                        </div>
+                        <div class="row player-control-1">
+                            <div class="col-lg-6 player-icons">
+                                <span><i class="fas fa-random"></i></span>
+                            </div>
+                            <div class="col-lg-6 player-icons">
+                                <span><i class="fas fa-redo"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!--  dsdfdsfdsf -->
+                    <div class="col-lg-3 player-window" style="">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script>
+        
+    
+        $("#menu-toggle").click( function (e){
+            e.preventDefault();
+            $("#wrapper").toggleClass("menuDisplayed");
+        });
+       
+    </script>
+  </body>
+</html>

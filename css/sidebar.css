@@ -1,0 +1,147 @@
+/* -- upper bar -- */
+body {
+    margin: 0px;
+    padding:0px;
+}
+
+.upper-bar {
+    margin: 0px;
+    padding: 3px;
+    border-bottom: 0.7px solid #254d74;
+}
+
+#website-logo {
+    padding: 10px;
+}
+#search-bar {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #000;
+    border-radius: 15px;
+    margin-top: 10px;
+}
+
+.user-button{
+    margin-top: 8px;
+    height: 45px;
+    max-width:350px;
+    background-color: #fff;
+    border: 0px solid #000;
+    
+
+}
+.user-button-inner {
+    padding: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: #fff;
+    border: 0px solid #fff;
+   
+
+}
+.user-button: onfocus {
+    border: 0px solid #fff;
+}
+
+/* ----------------------------------- */
+/* Sidebar */
+#sidebar-wrapper {
+    z-index: 1;
+    position: absolute;
+    width: 0;
+    height: 100%;
+    overflow-y: hidden;
+    background: #222;
+    background: linear-gradient(#222,#d65624);
+    opacity: 0.9;
+}
+
+/* Always take up entire screen */
+#page-content-wrapper {
+    margin:0px;
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+}
+
+
+/* Change with of sidebar from 0 to 250px */
+#wrapper.menuDisplayed #sidebar-wrapper {
+    width: 250px;
+}
+
+/* Since we added left padding, we need to shrink the width by 250px */
+#wrapper.menuDisplayed #page-content-wrapper {
+    padding-left: 250px;
+}
+
+
+/* Sidebar styling - the entire ul list */
+.sidebar-nav {
+    padding: 0;
+    list-style: none;
+}
+
+.sidebar-nav li {
+    text-indent: 40px;
+    line-height: 60px;
+}
+
+.sidebar-nav li a {
+    display: block;
+    text-decoration: none;
+    color: #eee;
+}
+
+.sidebar-nav li a:hover {
+    background: #111;
+    color: #d65624;
+}
+#contact-about {
+    padding: 30px;
+}
+#contact-about h4:hover a{
+    background-color: inherit;
+    color: #000;
+}
+
+
+/*-- player window --*/
+.player-side {
+    padding: 0px;
+    padding-top: 15px;
+    right: 0px;
+    margin: 0px;
+    height: 100%;
+    background-color: #333;
+    background: linear-gradient(#333,#d65624,#fff);
+    color: #eee;
+}
+.album-art {
+    max-height: 200px;
+    max-height: 300px;
+}
+.player-control-1 {
+    padding: 10px;
+    text-align: center;
+}
+.player-control-1 .player-icons{
+    margin: 0px;
+    padding: 2px;
+}
+.player-control-1 .player-icons span {
+    font-size: 24px;
+}
+.player-control-1 .player-icons span:hover {
+    color: #d65624;
+}
+
+/* -- upper navigation -- */
+.upper-navigation {
+    background-color: #333;
+    background: linear-gradient(#333,#fff);
+}
+.up-navigation {
+    padding: 3px;
+    color: #fff;
+}
