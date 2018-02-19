@@ -1,198 +1,261 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
-    <link rel="stylesheet" href="css/sidebar.css">
-  </head>
-  <body>
-    
+        <title>Collapsible sidebar using Bootstrap 3</title>
 
-    
-     <!-- upper bar -->
-    
-    <div class="row upper-bar">
-        <!-- logo -->
-        <div class="col-lg-3 text-center" id="website-logo">
-            <h2>Rhythm</h2>
-        </div>
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+
+        <link rel='stylesheet prefetch' href='http://cdn.plyr.io/2.0.13/plyr.css'>
         
-        <!-- 
-        <div class="col-lg-1" >
-            
-        </div>
+        <!-- BOOTSTRAP CDN -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <!-- Our Custom CSS -->
+        <link href="musicplayerstyle.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="style.css">
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+        <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         
-        -->
-        <div class="col-lg-6 text-center" >
-            <form>
-                <div class="form-group row">
-                    <div class="col-lg-1"></div>
-                        <div class="col-lg-10">
-                            <input type="search" id="search-bar" placeholder="Browse music, artists and much more..." class="form-control">
-                        </div>
-                    <div class="col-lg-1"></div>
+        
+    </head>
+    <body>
+
+        <div class="wrapper">
+            <!-- Sidebar Holder -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="glyphicon glyphicon-arrow-left"></i>
                 </div>
-            </form>
-        </div>
-        
-                    
-        <div class="col-lg-3 user-info text-center">
-            <!-- User Info -->
-            <!-- Example split danger button -->
-            <div class="btn-group user-button">
-              <a type="button" class="user-button-inner">User Name</a>
-              <a type="button" class="dropdown-toggle dropdown-toggle-split user-button-inner" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="sr-only">Toggle Dropdown</span>
-              </a>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Settings</a>
-                <a class="dropdown-item" href="#">Logout</a>
-              </div>
-            </div>
-        </div>
-    
-    </div>
-    
-    
-    <!-- Main section -->
-    <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                    <li><a href="#"><i class="fas fa-music"></i> Songs</a></li>
-                    <li><a href="#"><i class="far fa-user"></i> Artists</a></li>
-                    <li><a href="#"><i class="far fa-image"></i> Albums</a></li>
-                    <li><a href="#"><i class="fas fa-headphones"></i> Genres</a></li>
-                    <li><a href="#"><i class="fas fa-indent"></i> Playlists</a></li>
-                    <li><a href="#"><i class="fas fa-heart"></i> Favourites</a></li>
+                <div class="sidebar-header">
+                    <h3>Rhythm</h3>
+                </div>
+
+                <ul class="list-unstyled components">
+                    <p>File Manager</p>
                     <li>
-                        <div id="contact-about" class="text-center">
-                            <h4><a href="#"><i class="fas fa-phone" style="font-size:30px;"></i><br><br>Contact Us</a></h4>
-                            <br>
-                            <h4><a href="#"><i class="fas fa-users" style="font-size:30px;"></i><br><br>About Us</a></h4>
-                        </div>
+                        <a href="#">Songs</a>
                     </li>
+                    <li>
+                        <a href="#">Artists</a>
+                    </li>
+                    <li>
+                        <a href="#">Albums</a>
+                    </li>
+                    <li>
+                        <a href="#">Genres</a>
+                    </li>
+                    <li>
+                        <a href="#">Favourites</a>
+                    </li>
+                    <li>
+                        <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Playlists</a>
+                        <ul class="collapse list-unstyled" id="pageSubmenu">
+                            <li><a href="#">Playsist 1</a></li>
+                            <li><a href="#">Playsist 2</a></li>
+                            <li><a href="#">Playlist 3</a></li>
+                        </ul>
+                    </li>
+        
                 </ul>
-        </div>
 
-        <!-- Page content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <!-- main browsing window -->
-                <div class="row">
-                    <!-- center section of browsing window -->
-                    <div class="col-lg-9">
-                        <!-- upper navigation -->
-                        <div class="row upper-navigation" style="padding: 10px;">
-                            <div class="col-lg-1 up-navigation" >
-                                <a href="#" id="menu-toggle"><i class="fas fa-align-left" style="font-size:20px; color:#fff; margin: 0px;"></i></a>
-                            </div>
-                            <div class="col-lg-9 up-navigation" >
-                                <div class="row text-center">
-                                    <div class="col-lg-4">
-                                        <span><i class="far fa-snowflake"></i> New</span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <span><i class="fas fa-home"></i> Home</span>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <span><i class="fas fa-globe"></i> Discover</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-2 up-navigation">
-                                <div class="row text-center">
-                                    <div class="col-lg-6">
-                                        <span>
-                                            <i class="fas fa-angle-left"></i>
-                                        </span>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <span>
-                                            <i class="fas fa-angle-right"></i>
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
+                <ul class="list-unstyled">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+
+            <!-- Page Content Holder -->
+            <div id="content">
+                
+                <div class="container-fluid" style="padding: 0px;">
+                    
+                    <!-- Jumbotron for advertisements -->
+                    <div class="jumbotron row adv">
+                        <div class="col-lg-6">
+                            <h3>Welcome to Rythm</h3>
+                            <p class="lead">Enjoy Music anywhere anytime.</p>
                         </div>
+                        <div class="col-lg-6">
                         
-                        <!-- main content browsing window -->
-                        <div class="container text-center">
-                            <div class="row">
+                        </div>
+                    </div>
+                    
+                    <!-- main browsing window -->
+                    <div class="row main-browsing-window">
+                        
+                        <!-- center section of browsing window -->
+                        <div class="col-lg-12">
+                            <!-- upper navigation -->
+                            <div class="row upper-navigation">
+                                <!-- next/ previous nav buttons -->
+                                <div class="col-lg-1 up-navigation">
+                                    <div class="text-center next-prev">
+                                        
+                                            <button type="button" class="btn navbar-btn">
+                                                <i class="fas fa-angle-left"></i>  
+                                                <span>Prev</span>
+                                            </button>
+                                        
+                                    </div>
+                                </div>
+                                <div class="col-lg-8 up-navigation" >
+                                    <div class="text-center">
+                                        <div class="col-lg-3 col-md-6 nav-buttons">
+                                            <button type="button" id="sidebarCollapse" class="btn navbar-btn">
+                                                <i class="glyphicon glyphicon-align-left"></i>
+                                                <span>File Manager</span>
+                                            </button>
+                                        </div>
+                                        
+                                        <div class="col-lg-3  col-md-6 nav-buttons">
+                                            <button type="button" class="btn navbar-btn">
+                                                <i class="far fa-snowflake"></i>
+                                                <span>New</span>
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 nav-buttons">
+                                            <button type="button" class="btn navbar-btn">
+                                                <i class="fas fa-home"></i> 
+                                                <span>Home</span>
+                                            </button>
+                                        </div>
+                                        <div class="col-lg-3 col-md-6 nav-buttons">
+                                            <button type="button" class="btn navbar-btn">
+                                                <i class="fas fa-globe"></i>  
+                                                <span>Discover</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- next/ previous nav buttons -->
+                                <div class="col-lg-1 up-navigation">
+                                    <div class="text-center next-prev">
+                                        
+                                            <button type="button" class="btn navbar-btn">
+                                                <i class="fas fa-angle-right"></i>  
+                                                <span>Next</span>
+                                            </button>
+                                        
+                                    </div>
+                                </div>
+                                <!-- user menu -->
+                                <div class="col-lg-2 up-navigation text-center">
+                                    <!-- User Info -->
+                                    <div class="dropdown user-menu">
+                                      <button class="btn btn-default dropdown-toggle user-menu-button" type="button" id="menu1" data-toggle="dropdown">User
+                                      <span class="caret"></span></button>
+                                      <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                                        <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
+                                        <li role="presentation"><a role="menuitem" href="#">Settings</a></li>
+                        
+                                        <li role="presentation" class="divider"></li>
+                                          
+                                        <li role="presentation"><a role="menuitem" href="#">Log-out</a></li>
+                                      </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- main content browsing window -->
+                            <iframe src="demo_iframe.htm" class="browsing-window" height="420px" width="100%"></iframe>
                             
-                                <h1>Main Browsing Window</h1>
-                                
-                            </div>
+                            
                         </div>
                     </div>
-                    
-                    <!-- music player window -->
-                    <div class="col-lg-3 player-side">
-                        <div class="container-fluid">
-                            <div class="row" style="padding: 5px;">
-                                <div class="col-lg-12">
-                                    <div class="album-art">
-                                        <img class="img-responsive img-fluid album-art-img" src="images/music-1874621_640.jpg" >
+                    <!-- player section -->
+                    <div class="container-fluid player-section fixed-footer">
+                        <div class="column add-bottom">
+                            
+                            <div id="mainwrap">
+                                <img src="images/taylor.jpg" class="img-responsive img-fluid album-art">
+                                <div id="player-control-info">
+                                    <div id="nowPlay">
+                                        <span class="left" id="npTitle"></span>
+                                        
+                                    </div>
+                                    
+                                    <div id="audiowrap">
+                                        <div id="audio0">
+                                            <audio preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
+                                        </div>
+                                        <div id="tracks">
+                                            <a id="btnPrev"><i class="fas fa-chevron-left"></i></a>
+                                            <a id="btnNext"><i class="fas fa-chevron-right"></i></a>
+
+                                            <div>
+                                            Songs in Queue
+                                                <button type="button" class="btn btn-queue" data-toggle="collapse" data-target="#playlist-section"><i class="fas fa-list"></i></button>
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </div>
+                                
+                                
+                                
+                                <br>
+                                <div id="playlist-section" class="collapse">
+                                    <div id="plwrap">
+                                        <ul id="plList"></ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="row player-control-1">
-                                <div class="col-lg-4 player-icons">
-                                    <span><i class="fas fa-step-backward"></i></span>
-                                </div>
-                                <div class="col-lg-4 player-icons">
-                                    <span><i class="far fa-play-circle"></i></span>
-                                </div>
-                                <div class="col-lg-4 player-icons">
-                                    <span><i class="fas fa-step-forward"></i></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row player-control-1">
-                            <h3>Here comes the volume Control</h3>
-                        </div>
-                        <div class="row player-control-1">
-                            <div class="col-lg-6 player-icons">
-                                <span><i class="fas fa-random"></i></span>
-                            </div>
-                            <div class="col-lg-6 player-icons">
-                                <span><i class="fas fa-redo"></i></span>
-                            </div>
                         </div>
                     </div>
-                    
-                    <!--  dsdfdsfdsf -->
-                    <div class="col-lg-3 player-window" style="">
-                        
-                    </div>
+
                 </div>
+            
             </div>
         </div>
-
-    </div>
-    
-
-
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script>
         
-    
-        $("#menu-toggle").click( function (e){
-            e.preventDefault();
-            $("#wrapper").toggleClass("menuDisplayed");
-        });
-       
-    </script>
-  </body>
+
+
+        <div class="overlay"></div>
+
+
+        <!-- jQuery CDN -->
+        <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+        <!-- Bootstrap Js CDN -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').fadeOut();
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').fadeIn();
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
+        <!--
+        <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+        -->
+        <script src='http://api.html5media.info/1.1.8/html5media.min.js'></script>
+        
+        <script src='http://cdn.plyr.io/2.0.13/plyr.js'></script>
+        
+
+
+        <script  src="musicplayer.js"></script>
+    </body>
 </html>
