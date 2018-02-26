@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <style>
+        .btn {
+            background: linear-gradient(-90deg,#10E7DC,#70f5);
+            color: #fff;
+        }
+        .btn:hover {
+            color: #eee;
+        }
+        .music {
+            min-width: 10px;
+        }
+        .play-icon {
+            color: #10E7DC;
+            font-size: 23px;
+            display: none;
+        } 
+        tr:hover .play-icon {
+            display: block;
+        }
+        tr:hover {
+            opacity: 0.6;
+        }
+      
+    </style>
+  </head>
+  <body>
+    <div class="container">
+    <div>
+    <h3>Songs </h3>
+    <br>
+    <button type="btn" class="btn text-right">Play all</button>
+    </div>
+    <br>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th><prev>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</prev></th>
+          <th>Title</th>
+          <th>Artist</th>
+          <th>Album</th>
+          <th>Date added</th>
+          <th>Duration</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>Home with You</td>
+          <td>Madison Bear</td>
+          <td>As She Please</td>
+          <td>2018-01-24</td>
+          <td>3:11</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>White Noise</td>
+          <td>Ella Vos</td>
+          <td>White Noise</td>
+          <td>2018-02-01</td>
+          <td>3:16</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>End Gmae</td>
+          <td>Taylore Swift, Ed Sheeran</td>
+          <td>Reputation</td>
+          <td>2018-01-08</td>
+          <td>4:05</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>Home with You</td>
+          <td>Madison Bear</td>
+          <td>As She Please</td>
+          <td>2018-01-24</td>
+          <td>3:11</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>White Noise</td>
+          <td>Ella Vos</td>
+          <td>White Noise</td>
+          <td>2018-02-01</td>
+          <td>3:16</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>End Gmae</td>
+          <td>Taylore Swift, Ed Sheeran</td>
+          <td>Reputation</td>
+          <td>2018-01-08</td>
+          <td>4:05</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>Home with You</td>
+          <td>Madison Bear</td>
+          <td>As She Please</td>
+          <td>2018-01-24</td>
+          <td>3:11</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>White Noise</td>
+          <td>Ella Vos</td>
+          <td>White Noise</td>
+          <td>2018-02-01</td>
+          <td>3:16</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>End Gmae</td>
+          <td>Taylore Swift, Ed Sheeran</td>
+          <td>Reputation</td>
+          <td>2018-01-08</td>
+          <td>4:05</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>Home with You</td>
+          <td>Madison Bear</td>
+          <td>As She Please</td>
+          <td>2018-01-24</td>
+          <td>3:11</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>White Noise</td>
+          <td>Ella Vos</td>
+          <td>White Noise</td>
+          <td>2018-02-01</td>
+          <td>3:16</td>
+        </tr>
+        <tr>
+          <th scope="row" class="music"><span class="play-icon"><i class="far fa-play-circle"></i></span></th>
+          <td>End Gmae</td>
+          <td>Taylore Swift, Ed Sheeran</td>
+          <td>Reputation</td>
+          <td>2018-01-08</td>
+          <td>4:05</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  </body>
+</html>
