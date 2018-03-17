@@ -38,7 +38,7 @@ a, a:hover, a:focus {
     left: -250px;
     height: 100%;
     z-index: 999;
-    background: linear-gradient(-45deg,#10E7DC,#70f5);
+    background: #262626;
     color: #fff;
     transition: all 0.3s;
     overflow-y: scroll;
@@ -54,7 +54,7 @@ a, a:hover, a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #6d7fcc;
+    background: #000;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -78,12 +78,12 @@ a, a:hover, a:focus {
 
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #000;
 }
 
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid #333333;
 }
 
 #sidebar ul p {
@@ -97,12 +97,12 @@ a, a:hover, a:focus {
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #333333;
     background: #fff;
 }
 
 #sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #6d7fcc;
+    color: #333333;
     background: #fff
 }
 
@@ -152,8 +152,8 @@ ul ul a {
     padding: 18px;
     padding-top: 0px;
     padding-bottom: 0px;
-    background: linear-gradient(-45deg,#70f5,#10E7DC);
-    color: #fff;
+    background: #333333;
+    color: #eee;
 }
 .adv .lead {
     color: #fff;
@@ -164,7 +164,10 @@ ul ul a {
             UPPER NAVIGATION
 -------------------------------------------*/
 .upper-navigation {
-    padding: 0px;
+    border-top: 0.5px solid #ddd;
+    padding: 3px;
+    background: #333333;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     /*border-top: 1px solid #a6a6a6;*/
 }
     
@@ -173,29 +176,48 @@ ul ul a {
 }
 .nav-buttons .btn {
     padding: 8px;
-    width: 200px ;
-    background: linear-gradient(-45deg,#10E7DC,#70f5);
+    padding-right: 2px;
+    padding-left: 2px;
+    width: 150px ;
+    background: #333333;
     color: #fff;
     font-family: 'Poppins', sans-serif;
 }
 .nav-buttons .btn:hover {
     padding: 8px;
-    width: 200px ;
-    border: 1px solid #6d7fcc;
-    background: #f2f2f2;
-    color: #6d7fcc;
+    padding-right: 2px;
+    padding-left: 2px;
+    width: 150px ;
+    border: 1px solid #555555;
+    background: #555555;
+    color: #eee;
     outline: none;
+}
+.search-box {
+    border-radius: 18px;
+}
+.search-icon {
+    background: #333333;
+    color: #ddd;
+    border: none;
+}
+.search-icon:hover {
+    background: #333333;
+    color: #fff;
 }
 .next-prev .btn, .next-prev .btn:active{
     padding: 8px;
     width: 100px;
-    background: #f2f2f2 ;
-    color: #6d7fcc;
+    background: #333333 ;
+    color: #ddd;
     font-weight: 600px;
     font-family: 'Poppins', sans-serif;
     outline: none;
 }
 
+.next-prev .btn:hover, .next-prev .btn:hover {
+    color: #fff;
+} 
 
 .user-menu {
     padding: 0px;
@@ -212,16 +234,16 @@ ul ul a {
     padding: 10px;
     font-family: 'Poppins', sans-serif;
     font-weight: 600px;
-    color: #000;
+    color: #ddd;
     font-family: 'Poppins', sans-serif;
     outline: none;
-    background: #f2f2f2 ;
-    border-color: #f2f2f2;
+    background: #333333;
+    border-color: #333333;
 }
 .user-menu-button:hover, .user-menu-button:active, .user-menu-button:focus {
-    background: #f2f2f2 !important;
-    color: #000 !important;
-    border-color: #f2f2f2 !important;
+    background: #333333 !important;
+    color: #fff !important;
+    border-color: #333333 !important;
     box-shadow: none;
     outline: none !important;
 }

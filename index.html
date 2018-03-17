@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-        <title>Collapsible sidebar using Bootstrap 3</title>
+        <title>Rhythm | Follow the Vibes of Music</title>
 
         <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
@@ -40,7 +40,7 @@
                 <ul class="list-unstyled components">
                     <p>File Manager</p>
                     <li>
-                        <a href="songs.html" target="browsing-window">Songs</a>
+                        <a href="song.html" target="browsing-window">Songs</a>
                     </li>
                     <li>
                         <a href="artist.html" target="browsing-window">Artists</a>
@@ -79,11 +79,11 @@
                     <!-- Jumbotron for advertisements -->
                     <div class="jumbotron row adv">
                         <div class="col-lg-6">
-                            <h3>Welcome to Rythm</h3>
-                            <p class="lead">Enjoy Music anywhere anytime.</p>
+                            <h3>Rhythm</h3>
                         </div>
-                        <div class="col-lg-6">
-                        
+                        <div class="col-lg-6 text-right">
+                            <h3>Welcome to Rythm</h3>
+                            <p>Feel the Vibes of Music</p>
                         </div>
                     </div>
                     
@@ -107,30 +107,40 @@
                                 </div>
                                 <div class="col-lg-8 up-navigation" >
                                     <div class="text-center">
-                                        <div class="col-lg-3 col-md-6 nav-buttons">
+                                        <div class="col-lg-2 nav-buttons">
                                             <button type="button" id="sidebarCollapse" class="btn navbar-btn">
                                                 <i class="glyphicon glyphicon-align-left"></i>
                                                 <span>File Manager</span>
                                             </button>
                                         </div>
                                         
-                                        <div class="col-lg-3  col-md-6 nav-buttons">
+                                        <div class="col-lg-2  nav-buttons">
                                             <button type="button" class="btn navbar-btn">
                                                 <i class="far fa-snowflake"></i>
                                                 <span><a href="main.html#newly_added" target="browsing-window">New</a></span>
                                             </button>
                                         </div>
-                                        <div class="col-lg-3 col-md-6 nav-buttons">
+                                        <div class="col-lg-2 nav-buttons">
                                             <button type="button" class="btn navbar-btn">
                                                 <i class="fas fa-home"></i> 
                                                 <span><a href="main.html" target="browsing-window">Home</a></span>
                                             </button>
                                         </div>
-                                        <div class="col-lg-3 col-md-6 nav-buttons">
+                                        <div class="col-lg-2 nav-buttons">
                                             <button type="button" class="btn navbar-btn">
                                                 <i class="fas fa-globe"></i>  
                                                 <span><a href="main.html#discover" target="browsing-window">Discover</a></span>
                                             </button>
+                                        </div>
+                                        <div class="col-lg-4 nav-search">
+                                            <form class="navbar-form navbar-right" role="search">
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control search-box" placeholder="Search...">
+                                                    <button type="submit" class="btn btn-default search-icon">
+                                                    <span class="glyphicon glyphicon-search"></span>
+                                                    </button>
+                                                </div>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
@@ -138,9 +148,9 @@
                                 <div class="col-lg-1 up-navigation">
                                     <div class="text-center next-prev">
                                         
-                                            <button type="button" class="btn navbar-btn">
-                                                <i class="fas fa-angle-right"></i>  
+                                            <button type="button" class="btn navbar-btn"> 
                                                 <span>Next</span>
+                                                <i class="fas fa-angle-right"></i> 
                                             </button>
                                         
                                     </div>
@@ -164,9 +174,7 @@
                             </div>
 
                             <!-- main content browsing window -->
-                            <iframe src="main.html" class="browsing-window" height="410px" width="100%" name="browsing-window"></iframe>
-                            
-                            
+                            <iframe src="main.html" class="browsing-window" height="410px" width="100%" name="browsing-window" style="margin-bottom: -6px;"></iframe>
                         </div>
                     </div>
                     <!-- player section -->

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Songs</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/sidebar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <style>
+        body {
+            background: #222222;
+            color: #ddd;
+        }
+        h3 {
+            color: #eee;
+        }
+        .container {
+            padding: 10px;
+        }
+        
+        .play-pause-button {
+            width: 40px;
+            text-align: center;
+        }
+        .play-icon, .pause-icon {
+            font-size: 22px;
+        }
+        .pause-icon {
+            display: none;
+        }
+        .play-pause-button:hover {
+            color: #999;
+        }
+        .badge {
+            background: #bbb;
+            color: #222222;
+            border-radius: 18px;
+        }
+        .add-button {
+            background: #222222;
+            color: #ddd;
+            border: none;
+            height: inherit;
+            padding: 0px;
+        }
+        .add-button:hover, .add-button:focus {
+            color: #fff;
+            outline: none;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <br>
+        <h3>Songs</h3>
+        <br><br>
+        <!-- table to show all the songs -->
+        <table class="table">
+            <thead>
+              <tr>
+                <th></th>
+                <th>Song</th>
+                <th>Artist</th>
+                <th>Album</th>
+                <th>Date released</th>
+                <th>Run-Time</th>
+                <th>Likes</th>
+                <th>Genre</th>
+                <th>Add</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="play-pause-button">
+                    <span class="play-icon"><i class="far fa-play-circle"></i></span>
+                    <span class="pause-icon"><i class="far fa-pause-circle"></i></span>
+                  </div>
+                </td>
+                <td>Us</td>
+                <td>Charlie Hanson</td>
+                <td>Us</td>
+                <td>20 Jan 2018</td>
+                <td>4:13</td>
+                <th><span class="badge">256</span></th>
+                <td>Pop</td>
+                <td>
+                    <form action="#" method="get">
+                      <button type="submit" class="add-button" formaction="#"><i class="fas fa-plus"></i></button>
+                    </form>
+                  </td>
+              </tr>
+              
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

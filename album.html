@@ -15,12 +15,20 @@
 <style> 
     body {
         padding: 10px;
+        background: #222222;
+        
+    }
+    p {
+        color: #ddd;
+    }
+    h3 {
+        color: #ddd;
     }
     .card {
         padding: 0px;
-        background: #fff;
-        color: #000;
-        border: 1px solid #fff;
+        background: #222222;
+        color: #ddd;
+        border: 1px solid #222222;
     }
     .card-body {
         margin: 0px;
@@ -33,22 +41,61 @@
     }
     .card-img-top {
         border-radius: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35); 
     }
     .card:hover  .card-img-top {
         opacity: 0.5;
+    }
+    .card-area {
+        position: relative;
+    }
+    .overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 70%;
+    width: 100%;
+    opacity: 0;
+    transition: 1 ease;
+    background-color: #222222;
+    }
+    .card-area:hover .overlay {
+        opacity: .4;
+    }
+    .inner-content {
+        padding: 45px;
+    }
+    .play-button {
+        background: inherit;
+        color: #fff;
+        border: none;
+    }
+    .play-button-icon {
+        font-size: 35px;
     }
 </style>
 </head>
 <body>
 <div class="container">
     <!-- Recently Played -->
-    <h3>ALbums :</h3>
+    <h3>Albums :</h3>
     <br>
     <div class="card-deck">
 
         <div class="card">
-            <div class="text-center">
+            <div class="text-center card-area">
                 <img class="card-img-top img-fluid img-responsive" src="images/israel-palacio-459693.jpg" alt="Card image cap">
+                <div class="overlay">
+                    <div class="text-center">
+                        <div class="inner-content">
+                            <form action="#" method="get">
+                              <button type="submit" class="add-button play-button" formaction="#"><i class="fas fa-play play-button-icon"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <div class="card-body">
                   <p class="card-text"><span class="title">Album name </span></p>
                   <p class="card-text">by <span class="artist">Artist Name </span></p>
