@@ -1,3 +1,25 @@
+<?php
+    //connecting to database
+    require "connect_db.php";
+    
+    //Starting the session for user
+    session_start();
+    
+    //Checking if the php file is called directly
+    if($_SESSION["user_id"] == ""){
+        header("Location: index.php");
+    }
+    //Defining $session Variables
+
+    //getting te=he user details
+    $user_id = $_SESSION["user_id"];
+    $user_name_query = "SELECT name FROM users WHERE id = '$user_id'";
+    
+    //executing_query
+    $user_name_row = mysqli_fetch_assoc(mysqli_query($conn,$user_name_query));
+    $user_name = $user_name_row["name"];
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -40,7 +62,7 @@
                 <ul class="list-unstyled components">
                     <p>File Manager</p>
                     <li>
-                        <a href="song.html" target="browsing-window">Songs</a>
+                        <a href="song.php" target="browsing-window">Songs</a>
                     </li>
                     <li>
                         <a href="artist.html" target="browsing-window">Artists</a>
@@ -159,7 +181,8 @@
                                 <div class="col-lg-2 up-navigation text-center">
                                     <!-- User Info -->
                                     <div class="dropdown user-menu">
-                                      <button class="btn btn-default dropdown-toggle user-menu-button" type="button" id="menu1" data-toggle="dropdown">User
+                                      <button class="btn btn-default dropdown-toggle user-menu-button" type="button" id="menu1" data-toggle="dropdown">
+                                        <?php echo $user_name ?>
                                       <span class="caret"></span></button>
                                       <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
                                         <li role="presentation"><a role="menuitem" href="#">Profile</a></li>
@@ -167,14 +190,14 @@
                         
                                         <li role="presentation" class="divider"></li>
                                           
-                                        <li role="presentation"><a role="menuitem" href="#">Log-out</a></li>
+                                        <li role="presentation"><a role="menuitem" href="logout.php">Log-out</a></li>
                                       </ul>
                                     </div>
                                 </div>
                             </div>
 
                             <!-- main content browsing window -->
-                            <iframe src="main.html" class="browsing-window" height="410px" width="100%" name="browsing-window" style="margin-bottom: -6px;"></iframe>
+                            <iframe src="main.html" class="browsing-window" id="style-1" height="410px" width="100%" name="browsing-window" style="margin-bottom: -6px;"></iframe>
                         </div>
                     </div>
                     <!-- player section -->

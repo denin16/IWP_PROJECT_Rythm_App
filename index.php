@@ -1,3 +1,45 @@
+<?php
+    //connecting to database
+    require "connect_db.php";
+    //Defining User varibables
+    $email = $password = "";
+    
+    if($_SERVER["REQUEST_METHOD"] == "POST"){
+        //taking the data from form for validation
+        $email = $_POST["email"];
+        $password = $_POST["password"];
+        
+        //defining sql query
+        $sql_query = "SELECT id ,email_id, password FROM users";
+        
+        $result_array = mysqli_query($conn,$sql_query);
+        
+        if(mysqli_num_rows($result_array) > 0){
+            //output data of each row
+            while($row = mysqli_fetch_assoc($result_array)){
+                //check if the email and password is present or not
+                $email_fetch = $row["email_id"];
+                $password_fetch = $row["password"];
+                
+                if(($email_fetch == $email) && ($password_fetch == $password)){
+                    //Creating a session for the user
+                    session_start();
+                    //defining session variables
+                    $_SESSION["user_id"] = $row["id"];
+                    header ("Location: home.php");
+                    
+                } else {
+                    
+                }
+                
+            }
+        } else {
+            header ("Location: index.php");
+        }
+        
+    }
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -76,20 +118,20 @@
                     <!-- nav links for Signup and LogIn -->
                     <div class="form-heading">
                         <nav class="nav">
-                          <a class="nav-link" href="login.html">LogIn</a>
+                          <a class="nav-link" href="index.php">LogIn</a>
                           <span style="border-right: 1px solid #ddd;"></span>
-                          <a class="nav-link text-muted" href="Signup.html">SignUp &gt;&gt;</a>
+                          <a class="nav-link text-muted" href="Signup.php">SignUp &gt;&gt;</a>
                         </nav>
                     </div>
                     <br>
                     <!-- form -->
-                    <form onsubmit="return !!(emailCheck() & passwordCheck());" action="index.html">
+                    <form onsubmit="return !!(emailCheck() & passwordCheck());" method="post" action="index.php">
                         <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Enter Your email" oninput="emailCheck()" required>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Enter Your email" oninput="emailCheck()" required>
                             <small id="emailmessage" class="text-left"></small>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" id="password" placeholder="Enter a password" oninput="passwordCheck()" required>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Enter a password" oninput="passwordCheck()" required>
                             <small id="passwordmessage" class="text-left"></small>
                         </div>
                         <div class="form-group text-left">
