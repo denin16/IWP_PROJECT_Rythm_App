@@ -197,7 +197,7 @@
                             </div>
 
                             <!-- main content browsing window -->
-                            <iframe src="main.html" class="browsing-window" id="style-1" height="410px" width="100%" name="browsing-window" style="margin-bottom: -6px;"></iframe>
+                            <iframe src="main.php" class="browsing-window" id="style-1" height="410px" width="100%" name="browsing-window" style="margin-bottom: -6px;"></iframe>
                         </div>
                     </div>
                     <!-- player section -->
