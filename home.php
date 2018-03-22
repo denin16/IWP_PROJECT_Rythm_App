@@ -68,7 +68,7 @@
                         <a href="artist.html" target="browsing-window">Artists</a>
                     </li>
                     <li>
-                        <a href="album.html" target="browsing-window">Albums</a>
+                        <a href="album.php" target="browsing-window">Albums</a>
                     </li>
                     <li>
                         <a href="#">Genres</a>
