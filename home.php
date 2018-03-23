@@ -37,13 +37,231 @@
         <!-- BOOTSTRAP CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
+        <!--
         <link href="musicplayerstyle.css" rel="stylesheet" type="text/css">
+        -->
         <link rel="stylesheet" href="style.css">
         <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         
+        <style>
+            .player-section {
+                margin-top: 0;
+                width: 100%;
+                background: #333333;
+                color: #fff;
+            }
+            .column { 
+                width:inherit;
+            }
+
+
+            /* Typography / Links
+            ================================================== */
+
+            p { color:#fff;
+                display:block;
+                font-size:.9rem;
+                font-weight:400;
+                margin:0 0 2px;
+            }
+
+            a,a:visited { 
+                color:#fff;
+                outline:0;
+                text-decoration:none;
+            }
+            a:hover,a:focus { 
+                color:#bbdef5;
+            }
+            p a,p a:visited { 
+                line-height:inherit;
+            }
+
+
+            /* Misc.
+            ================================================== */
+
+            .add-bottom { margin-bottom:0rem !important; }
+            .left { 
+                float:left;
+            }
+            .right { float:right; }
+            .center { text-align:center; }
+
+
+            /* Audio Player Styles
+            ================================================== */
+
+            audio {
+            margin:0 15px 0 14px;
+            width:670px;
+            }
+
+            #mainwrap {
+                text-align: center;
+            }
+
+            #audiowrap,
+            #plwrap {
+            margin:0 auto;
+            padding: 0px;
+            }
+
+            #tracks {
+            position:relative;
+            text-align:center;
+            padding: 0px;
+            }
+
+
+            .album-art {
+                max-width: 150px;
+                max-height: 150px;
+                min-width: 100px;
+                display: inline;
+                width: 10%;
+                padding: 20px;
+                margin-top: -10%;
+            }
+
+            #player-control-info {
+                display: inline-block;
+                text-align: center;
+                width: 75%;
+            }
+            #nowPlay {
+            display:inline;
+            }
+            #npAction {
+            padding: 25px;
+            }
+
+            #npTitle {
+            padding:21px;
+            }
+
+            #plList li {
+            cursor:pointer;
+            display:block;
+            margin:0;
+            padding:21px 0;
+            }
+
+            #plList li:hover {
+            background-color:rgba(0,0,0,.3);
+            }
+
+            .plItem {
+            position:relative;
+            }
+
+            .plTitle {
+            left:50px;
+            overflow:hidden;
+            position:absolute;
+            right:65px;
+            text-overflow:ellipsis;
+            top:0;
+            white-space:nowrap;
+            }
+
+            .plNum {
+            padding-left:21px;
+            width:25px;
+            }
+
+            .plLength {
+            padding-left:21px;
+            position:absolute;
+            right:21px;
+            top:0;
+            }
+
+            .plSel,
+            .plSel:hover {
+            background-color:rgba(0,0,0,.1);
+            color:#fff;
+            cursor:default !important;
+            }
+
+            a[id^="btn"] {
+            border-radius:3px;
+            color:#fff;
+            cursor:pointer;
+            display:inline-block;
+            font-size:2rem;
+            height:35px;
+            line-height:.8;
+            margin:0 20px 20px;
+            padding:10px;
+            text-decoration:none;
+            transition:background .3s ease;
+            width:35px;
+            }
+
+            a[id^="btn"]:last-child {
+            margin-left:-4px;
+            }
+
+            a[id^="btn"]:hover,
+            a[id^="btn"]:active {
+            background-color:rgba(0,0,0,.1);
+            color:#fff;
+            }
+
+            a[id^="btn"]::-moz-focus-inner {
+            border:0;
+            padding:0;
+            }
+
+
+            /* Plyr Overrides
+            ================================================== */
+
+            .plyr--audio .plyr__controls {
+            background-color:inherit;
+            border:none;
+            color:#fff;;
+            padding:3px 25px 10px 5px;
+            width:100%;
+            }
+
+            .plyr--audio .plyr__controls button.tab-focus:focus,
+            .plyr--audio .plyr__controls button:hover,
+            .plyr__play-large {
+            color: #000;
+            background: inherit;
+            }
+
+            .plyr__progress--played, .plyr__volume--display {
+            color:#fff;
+            height: 6px;
+            }
+
+            .plyr--audio .plyr__progress--buffer,
+            .plyr--audio .plyr__volume--display {
+            background:rgba(0,0,0,.1);
+            height: 6px;
+            }
+
+            .plyr--audio .plyr__progress--buffer {
+            color:rgba(0,0,0,.1);
+            }
+            .btn-queue, .btn-queue:focus {
+                background: inherit;
+                outline: none !important;
+            }
+
+            /* Media Queries
+            ================================================== */
+
+            @media only screen and (max-width:850px) {
+                #nowPlay { display:none; }
+            }
+        </style>
         
     </head>
     <body>
