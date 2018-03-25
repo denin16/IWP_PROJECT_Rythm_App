@@ -58,10 +58,8 @@
             }
 
 
-            /* Typography / Links
-            ================================================== */
-
-            p { color:#fff;
+            p { 
+                color:#fff;
                 display:block;
                 font-size:.9rem;
                 font-weight:400;
@@ -278,7 +276,7 @@
                 </div>
 
                 <ul class="list-unstyled components">
-                    <p>File Manager</p>
+                    <p style="font-size: 20px;">File Manager</p>
                     <li>
                         <a href="song.php" target="browsing-window">Songs</a>
                     </li>
