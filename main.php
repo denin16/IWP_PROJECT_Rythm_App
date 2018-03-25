@@ -1,9 +1,12 @@
-<?php 
-    //connecting to database
+
+<?php
+    //Connecting the database
     require "connect_db.php";
 
-    //Starting the user session
+    //Starting the session for user
     session_start();
+
+
     //Getting the user id
     $user_id = $_SESSION["user_id"];
 
@@ -51,7 +54,6 @@
         
     
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,6 +85,16 @@
         margin: 8px;
         margin-bottom: 15px;
     }
+
+    .card {
+        padding: 0px;
+        color: #ddd;
+        background: #111;
+        border: 1px solid #222222;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25); 
+    }
+    
+
     .card-body {
         margin: 0px;
         padding: 0px;
@@ -92,6 +104,7 @@
         padding-left: 5px;
         color: #ddd;
     }
+
     .music-card:hover  .card-img-top {
         opacity: 0.4;
     }
@@ -99,7 +112,7 @@
 </head>
 <body>
 <div class="container">
-    
+  
     <h3 id="newly_added">Newly added...</h3>
     <div class="row">
         <!--Displaying New songs -->
@@ -120,7 +133,7 @@
     </div>
     <div class="text-right" style="padding: 3px;">
         <p><a href="main.php?ID=1" class="">See all...</a></p>
-    </div>
+
 </div>
     
 </body>
