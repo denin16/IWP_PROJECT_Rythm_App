@@ -65,7 +65,7 @@
                         <a href="song.php" target="browsing-window">Songs</a>
                     </li>
                     <li>
-                        <a href="artist.html" target="browsing-window">Artists</a>
+                        <a href="artist.php" target="browsing-window">Artists</a>
                     </li>
                     <li>
                         <a href="album.php" target="browsing-window">Albums</a>
@@ -117,6 +117,7 @@
                             <!-- upper navigation -->
                             <div class="row upper-navigation">
                                 <!-- next/ previous nav buttons -->
+                                <!--
                                 <div class="col-lg-1 up-navigation">
                                     <div class="text-center next-prev">
                                         
@@ -127,31 +128,33 @@
                                         
                                     </div>
                                 </div>
+                                -->
+                                <div class="col-lg-2"></div>
                                 <div class="col-lg-8 up-navigation" >
                                     <div class="text-center">
-                                        <div class="col-lg-2 nav-buttons">
+                                        <div class="col-lg-2 col-md-6 nav-buttons">
                                             <button type="button" id="sidebarCollapse" class="btn navbar-btn">
                                                 <i class="glyphicon glyphicon-align-left"></i>
                                                 <span>File Manager</span>
                                             </button>
                                         </div>
                                         
-                                        <div class="col-lg-2  nav-buttons">
+                                        <div class="col-lg-2 col-md-6  nav-buttons">
                                             <button type="button" class="btn navbar-btn">
                                                 <i class="far fa-snowflake"></i>
-                                                <span><a href="main.html#newly_added" target="browsing-window">New</a></span>
+                                                <span><a href="main.php#newly_added" target="browsing-window">New</a></span>
                                             </button>
                                         </div>
-                                        <div class="col-lg-2 nav-buttons">
+                                        <div class="col-lg-2 col-md-6 nav-buttons">
                                             <button type="button" class="btn navbar-btn">
                                                 <i class="fas fa-home"></i> 
-                                                <span><a href="main.html" target="browsing-window">Home</a></span>
+                                                <span><a href="main.php" target="browsing-window">Home</a></span>
                                             </button>
                                         </div>
-                                        <div class="col-lg-2 nav-buttons">
+                                        <div class="col-lg-2 col-md-6 nav-buttons">
                                             <button type="button" class="btn navbar-btn">
                                                 <i class="fas fa-globe"></i>  
-                                                <span><a href="main.html#discover" target="browsing-window">Discover</a></span>
+                                                <span><a href="main.php#discover" target="browsing-window">Discover</a></span>
                                             </button>
                                         </div>
                                         <div class="col-lg-4 nav-search">
@@ -167,6 +170,7 @@
                                     </div>
                                 </div>
                                 <!-- next/ previous nav buttons -->
+                                <!--
                                 <div class="col-lg-1 up-navigation">
                                     <div class="text-center next-prev">
                                         
@@ -177,6 +181,7 @@
                                         
                                     </div>
                                 </div>
+                                -->
                                 <!-- user menu -->
                                 <div class="col-lg-2 up-navigation text-center">
                                     <!-- User Info -->

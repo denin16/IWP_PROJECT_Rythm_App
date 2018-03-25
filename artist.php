@@ -13,16 +13,15 @@
         header("Location: connection_error.php");
     }
 
-    //Script to fetch all the albums
-    $sql = "SELECT id, name, artist, date_released, image, followers FROM albums";
+    //Script to fetch all the artists
+    $sql = "SELECT id, name, image FROM artists";
 
     if($result = mysqli_query($conn,$sql)){
         if(mysqli_num_rows($result)>0){
             $i = 0;
             while($row = mysqli_fetch_assoc($result)){
                 $id[$i] = $row["id"];
-                $album[$i] = $row["name"];
-                $artist[$i] = $row["artist"];
+                $artist[$i] = $row["name"];
                 $images[$i] = $row["image"];
                 $i++;
             }
@@ -39,7 +38,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Album Page</title>
+    <title>Artist Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -86,22 +85,21 @@
 </head>
 <body>
 <div class="container">
-    <!-- Recently Played -->
-    <h3>Albums :</h3>
+    
+    <h3>Artists :</h3>
     <br>
     <div class="row">
         <?php 
-        //Displaying all tha albums
-                for($j = 0; $j < count($album); $j++){
+        //Displaying all tha artist
+                for($j = 0; $j < count($artist); $j++){
                     echo  "
                        <div class='col-lg-2'>
                             <div class='text-center card-area'>
-                                <a href='album_page.php?ID={$id[$j]}'>
-                                <img class='card-img-top img-fluid img-responsive' src='images/albums_cover_art/".$images[$j]."' alt='Card image cap'>
+                                <a href='artist_page.php?ID={$id[$j]}'>
+                                <img class='card-img-top img-fluid img-responsive' src='images/artists_cover_art/".$images[$j]."' alt='Card image cap'>
                                 </a>
                                 <div class='card-body'>
-                                  <p class='card-text'><span class='title'>".$album[$j]."</span></p>
-                                  <p class='card-text'>by <span class='artist'>".$artist[$j]."</span></p>
+                                  <p class='card-text'><span class='title'>".$artist[$j]."</span></p>
                                 </div>
                             </div>
                         </div> 

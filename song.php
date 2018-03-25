@@ -14,14 +14,13 @@
 
     //Script to display all the songs present in the database
     //Defining Query to get all the songs
-    $query_to_get_all_songs = "SELECT id, name, artist, album, date_released, run_length, likes FROM songs";
+    $query =  "SELECT id, name, artist, album, date_released, genre, likes FROM songs";
 
-    $query = $query_to_get_all_songs;
     
 
     //Script to show content in tables
    
-        
+    //$table_content = "<p class='text-center'>Sorry! No results found!<p>";    
     if($result = mysqli_query($conn, $query)){
         if (mysqli_num_rows($result) > 0) {
         $table_content = "<table class='table'>
@@ -32,7 +31,6 @@
                                 <th>Artist</th>
                                 <th>Album</th>
                                 <th>Date released</th>
-                                <th>Run-Time</th>
                                 <th>Likes</th>
                                 <th>Genre</th>
                                 <th>Add</th>
@@ -53,9 +51,8 @@
                             <td>".$row['artist']."</td>
                             <td>".$row['album']."</td>
                             <td>".$row['date_released']."</td>
-                            <td>".$row['run_length']."</td>
                             <th><span class='badge'>".$row['likes']."</span></th>
-                            <td>Pop</td>
+                            <td>".$row['genre']."</td>
                             <td>
                                 <form action='#' method='get'>
                                   <button type='submit' class='add-button' formaction='#'><i class='fas fa-plus'></i></button>
@@ -67,10 +64,11 @@
             $table_content .= "</tbody>
                         </table>";
         } else {
-            echo "
-            <div class='text-center'>No Results Found </div>
-            ";
+            $table_content = "<p class='text-center'>Sorry! No Music Available</p>";
         }
+    } else {
+        //Error in executing the query
+        echo "Error executing the query";
     }
         
     
