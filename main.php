@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
     //Connecting the database
     require "connect_db.php";
@@ -5,6 +6,14 @@
     //Starting the session for user
     session_start();
 
+=======
+<?php 
+    //connecting to database
+    require "connect_db.php";
+
+    //Starting the user session
+    session_start();
+>>>>>>> branch1
     //Getting the user id
     $user_id = $_SESSION["user_id"];
 
@@ -13,8 +22,50 @@
         header("Location: connection_error.php");
     }
 
+<<<<<<< HEAD
 ?>
 
+=======
+    /*-------------------------------------------------------------
+    Script to display all the new songs present in the database
+    --------------------------------------------------------------*/
+    $limit = "";
+    //fetching limit value
+    if(isset($_GET["ID"])){
+        $limit = $_GET["ID"];
+    }
+    if($limit == "1"){
+        //Defining Query to get all the new songs
+        $query1 =  "SELECT id, name, artist, album, image FROM songs ORDER BY date_released DESC";
+    } else{
+        //Defining Query to get only the 10 new songs
+        $query1 =  "SELECT id, name, artist, album, image FROM songs ORDER BY date_released DESC LIMIT 10";
+    }
+    
+
+    //Script to show content in cards form
+    $i = 0;
+    if($result = mysqli_query($conn, $query1)){
+        if (mysqli_num_rows($result) > 0) {
+            while($result_array = mysqli_fetch_assoc($result)){
+                $id[$i] = $result_array["id"];
+            $songs[$i] = $result_array["name"];
+            $artist[$i] = $result_array["artist"];
+            $album[$i] = $result_array["album"];
+            $images[$i] = $result_array["image"];
+            $i++;
+            }
+        } else {
+            $table_content = "<p class='text-center'>Sorry! No Music Available</p>";
+        }
+    } else {
+        //Error in executing the query
+        echo "Error executing the query";
+    }
+        
+    
+?>
+>>>>>>> branch1
 
 <!DOCTYPE html>
 <html>
@@ -37,10 +88,15 @@
     }
     p {
         color: #ddd;
+<<<<<<< HEAD
+=======
+        font-size: 15px;
+>>>>>>> branch1
     }
     h3 {
         color: #ddd;
     }
+<<<<<<< HEAD
     .card {
         padding: 0px;
         color: #ddd;
@@ -49,6 +105,13 @@
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.25), 0 6px 20px 0 rgba(0, 0, 0, 0.25); 
     }
     
+=======
+
+    .music-card {
+        margin: 8px;
+        margin-bottom: 15px;
+    }
+>>>>>>> branch1
     .card-body {
         margin: 0px;
         padding: 0px;
@@ -58,7 +121,11 @@
         padding-left: 5px;
         color: #ddd;
     }
+<<<<<<< HEAD
     .card:hover  .card-img-top {
+=======
+    .music-card:hover  .card-img-top {
+>>>>>>> branch1
         opacity: 0.4;
     }
 </style>
@@ -66,6 +133,7 @@
 <body>
 <div class="container">
     
+<<<<<<< HEAD
     <!-- Recently Played -->
     <h3>Recently Played ...</h3>
     <div class="card-deck">
@@ -393,6 +461,28 @@
     </div>
     <div class="text-right" style="padding: 3px;">
         <p><a href="#" class="text-muted">See all...</a></p>
+=======
+    <h3 id="newly_added">Newly added...</h3>
+    <div class="row">
+        <!--Displaying New songs -->
+        <?php
+        for($i = 0; $i < count($id); $i++){
+        echo "
+        <div class='col-lg-2 music-card'>
+            <div class='text-center'>
+                <img class='card-img-top img-fluid img-responsive' id='' src='images/albums_cover_art/{$images[$i]}' alt='Card image cap'>
+                <div class='card-body text-left'>
+                  <p class='card-text'><span class='title'>Title: $songs[$i]</span></p>
+                  <p class='card-text'><span class='artist'>Artist: $artist[$i]</span></p>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+    </div>
+    <div class="text-right" style="padding: 3px;">
+        <p><a href="main.php?ID=1" class="">See all...</a></p>
+>>>>>>> branch1
     </div>
 </div>
     
