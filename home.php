@@ -374,9 +374,9 @@
                                             </button>
                                         </div>
                                         <div class="col-lg-4 nav-search">
-                                            <form class="navbar-form navbar-right" role="search">
+                                            <form class="navbar-form navbar-right" role="search" action="searchresult.php" method="POST">
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control search-box" placeholder="Search...">
+                                                    <input type="text" class="form-control search-box" name="search" placeholder="Search...">
                                                     <button type="submit" class="btn btn-default search-icon">
                                                     <span class="glyphicon glyphicon-search"></span>
                                                     </button>

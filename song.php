@@ -14,7 +14,7 @@
 
     //Script to display all the songs present in the database
     //Defining Query to get all the songs
-    $query =  "SELECT id, name, artist, album, date_released, genre, likes FROM songs";
+    $query =  "SELECT id, name, artist, album, date_released, genre, likes FROM songs WHERE id IN (SELECT song_id FROM added_songs WHERE user_id = '$user_id')";
 
     
 

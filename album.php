@@ -14,8 +14,8 @@
     }
 
     //Script to fetch all the albums
-    $sql = "SELECT id, name, artist, date_released, image, followers FROM albums";
-
+    $sql = "SELECT id, name, artist, date_released, image, followers FROM albums WHERE id IN (SELECT album_id FROM follows_album WHERE user_id = '$user_id')";
+    $error_message = 0;
     if($result = mysqli_query($conn,$sql)){
         if(mysqli_num_rows($result)>0){
             $i = 0;
@@ -27,7 +27,7 @@
                 $i++;
             }
         } else {
-            echo "No data to display";
+            $error_message = 1;
         }
     } else {
         echo "Error occured while executing the query.";
@@ -92,6 +92,7 @@
     <div class="row">
         <?php 
         //Displaying all tha albums
+        if($error_message == 0){
                 for($j = 0; $j < count($album); $j++){
                     echo  "
                        <div class='col-lg-2'>
@@ -107,6 +108,13 @@
                         </div> 
                     "; 
                 }
+        } else {
+            echo "
+            <div class='col-lg-12'>
+                <p class='text-center'>Sorry! No Albums added yet.</p>
+            </div>
+            ";
+        }
         ?>
     </div>
 </div>

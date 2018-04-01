@@ -14,8 +14,8 @@
     }
 
     //Script to fetch all the artists
-    $sql = "SELECT id, name, image FROM artists";
-
+    $sql = "SELECT id, name, image FROM artists WHERE id IN (SELECT artist_id FROM follows_artist WHERE user_id = '$user_id')";
+    $error_message = 0;
     if($result = mysqli_query($conn,$sql)){
         if(mysqli_num_rows($result)>0){
             $i = 0;
@@ -26,7 +26,7 @@
                 $i++;
             }
         } else {
-            echo "No data to display";
+            $error_message = 1;
         }
     } else {
         echo "Error occured while executing the query.";
@@ -91,8 +91,9 @@
     <div class="row">
         <?php 
         //Displaying all tha artist
+        if($error_message == 0){
                 for($j = 0; $j < count($artist); $j++){
-                    echo  "
+                    echo "
                        <div class='col-lg-2'>
                             <div class='text-center card-area'>
                                 <a href='artist_page.php?ID={$id[$j]}'>
@@ -105,6 +106,13 @@
                         </div> 
                     "; 
                 }
+        } else {
+            echo "
+            <div class='col-lg-12'>
+                <p class='text-center'>Sorry! No Artists added yet.</p>
+            </div>
+            ";
+        }
         ?>
     </div>
 </div>

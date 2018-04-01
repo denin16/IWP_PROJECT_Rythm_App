@@ -15,20 +15,10 @@
    /*-------------------------------------------------------------
     Script to display all the new songs present in the database
     --------------------------------------------------------------*/
-    $limit = "";
-    //fetching limit value
-    if(isset($_GET["ID"])){
-        $limit = $_GET["ID"];
-    }
-    if($limit == "1"){
-        //Defining Query to get all the new songs
-        $query1 =  "SELECT id, name, artist, album, image FROM songs ORDER BY date_released DESC";
-    } else{
-        //Defining Query to get only the 10 new songs
-        $query1 =  "SELECT id, name, artist, album, image FROM songs ORDER BY date_released DESC LIMIT 10";
-    }
     
-
+    //Defining Query to get all the new songs
+    $query1 =  "SELECT id, name, artist, album, image FROM songs ORDER BY date_released DESC";
+    
     //Script to show content in cards form
     $i = 0;
     if($result = mysqli_query($conn, $query1)){
@@ -47,6 +37,70 @@
     } else {
         //Error in executing the query
         echo "Error executing the query";
+    }
+
+    /*---------------------------------------------------------------
+    Script to all the popular artists
+    ----------------------------------------------------------------*/
+    //Defining Query to get all artist
+    $query2 = "SELECT id, name, image FROM artists";
+
+    if($result = mysqli_query($conn,$query2)){
+        if(mysqli_num_rows($result)>0){
+            $i = 0;
+            while($row = mysqli_fetch_assoc($result)){
+                $artist_id[$i] = $row["id"];
+                $artist_name[$i] = $row["name"];
+                $artist_images[$i] = $row["image"];
+                $i++;
+            }
+        } else {
+            echo "No data to display";
+        }
+    } else {
+        echo "Error occured while executing the query.";
+    }
+
+    /*---------------------------------------------------------------
+    Script to all the popular albums
+    ----------------------------------------------------------------*/
+    //Defining Query to get all albums
+    $query2 = "SELECT id, name, image FROM albums";
+
+    if($result = mysqli_query($conn,$query2)){
+        if(mysqli_num_rows($result)>0){
+            $i = 0;
+            while($row = mysqli_fetch_assoc($result)){
+                $album_id[$i] = $row["id"];
+                $album_name[$i] = $row["name"];
+                $album_images[$i] = $row["image"];
+                $i++;
+            }
+        } else {
+            echo "No data to display";
+        }
+    } else {
+        echo "Error occured while executing the query.";
+    }
+
+    /*----------------------------------------------------------------
+    Script to display the random songs
+    ----------------------------------------------------------------*/
+    //Defining query to get random songs
+    
+    $query3 = "SELECT id, name, artist, album, image FROM songs ORDER BY RAND() LIMIT 10";
+    
+    if($result = mysqli_query($conn,$query3)){
+        if(mysqli_num_rows($result)>0){
+            $i = 0;
+            while($row = mysqli_fetch_assoc($result)){
+                $rand_song_id[$i] = $row["id"];
+                $rand_song_name[$i] = $row["name"];
+                $rand_song_artist[$i] = $row["artist"];
+                $rand_song_images[$i] = $row["image"];
+                $i++;
+            }
+        }
     }
 
 ?>
@@ -91,35 +145,137 @@
         padding-left: 5px;
         color: #ddd;
     }
-    .music-card:hover  .card-img-top {
+    .card-img-top{
+        height: 150px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35); 
+    }
+    .card-img-top:hover {
         opacity: 0.4;
     }
+    .add-button {
+        background: #222222;
+        color: #ccc;
+        border: none;
+        font-size: 25px;
+        outline: none;
+        text-decoration: none;
+    }
+    .add-button:hover,.add-button:focus {
+        outline: none;
+        color: #fff;
+        text-decoration: none;
+    }
+    .card-img-top-artist {
+        height: 150px;
+        border-radius: 50%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.35), 0 6px 20px 0 rgba(0, 0, 0, 0.35); 
+    }
+    .card-img-top-artist:hover {
+        opacity: 0.4;
+    }
+    
 </style>
 </head>
 <body>
 <div class="container">
             
-    <h3 id="newly_added">Newly added...</h3>
+    <h3 id="newly_added">Newly added Songs...</h3>
     <div class="row">
         <!--Displaying New songs -->
         <?php
         for($i = 0; $i < count($id); $i++){
         echo "
-        <div class='col-lg-2 music-card'>
+        <div class='col-lg-2 music-card' id='{$id[$i]}'>
             <div class='text-center'>
                 <img class='card-img-top img-fluid img-responsive' id='' src='images/albums_cover_art/{$images[$i]}' alt='Card image cap'>
-                <div class='card-body text-left'>
-                  <p class='card-text'><span class='title'>Title: $songs[$i]</span></p>
-                  <p class='card-text'><span class='artist'>Artist: $artist[$i]</span></p>
+                <div class='card-body row text-left'>
+                  <div class='col-lg-9'>
+                      <p class='card-text'><span class='title'>$songs[$i] ($artist[$i])</span></p>
+                  </div>
+                  <div class='col-lg-3 add-button-section'>
+                        <a href='addsong.php?ID={$id[$i]}' class='add-button'>+</a>
+                  </div>
                 </div>
             </div>
         </div>";
         }
         ?>
     </div>
-    <div class="text-right" style="padding: 3px;">
-        <p><a href="main.php?ID=1" class="">See all...</a></p>
+    <br><br>
+    <h3 id="popular_artist">Popular Artists...</h3>
+    <div class="row">
+        <!--Displaying Popular Artists -->
+        <?php
+        for($i = 0; $i < count($artist_id); $i++){
+        echo "
+        <div class='col-lg-2 music-card' id='{$artist_id[$i]}'>
+            <div class='text-center'>
+                <a href='artist_page.php?ID={$artist_id[$i]}'>
+                <img class='card-img-top-artist img-fluid img-responsive' id='' src='images/artists_cover_art/{$artist_images[$i]}' alt='Card image cap'>
+                </a>
+                <div class='card-body row text-left'>
+                  <div class='col-lg-9'>
+                      <p class='card-text'><span class='artist'>$artist_name[$i]</span></p>
+                  </div>
+                  <div class='col-lg-3 add-button-section'>
+                        <a href='addartist.php?ID={$artist_id[$i]}' class='add-button'>+</a>
+                  </div>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
     </div>
+    <br><br>
+    <h3 id="popular_albums">Popular Albums...</h3>
+    <div class="row">
+        <!--Displaying Popular Albums -->
+        <?php
+        for($i = 0; $i < count($album_id); $i++){
+        echo "
+        <div class='col-lg-2 music-card' id='{$album_id[$i]}'>
+            <div class='text-center'>
+                <a href='album_page.php?ID={$album_id[$i]}'>
+                <img class='card-img-top-artist img-fluid img-responsive' id='' src='images/albums_cover_art/{$album_images[$i]}' alt='Card image cap'>
+                </a>
+                <div class='card-body row text-left'>
+                  <div class='col-lg-9'>
+                      <p class='card-text'><span class='artist'>$album_name[$i]</span></p>
+                  </div>
+                  <div class='col-lg-3 add-button-section'>
+                        <a href='addalbum.php?ID={$album_id[$i]}' class='add-button'>+</a>
+                  </div>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+    </div>
+    <br><br>
+    <h3 id="discover">Discover Songs...</h3>
+    <div class="row">
+        <!--Displaying New songs -->
+        <?php
+        for($i = 0; $i < 10; $i++){
+        echo "
+        <div class='col-lg-2 music-card' id='{$rand_song_id[$i]}'>
+            <div class='text-center'>
+                <img class='card-img-top img-fluid img-responsive' id='' src='images/albums_cover_art/{$rand_song_images[$i]}' alt='Card image cap'>
+                <div class='card-body row text-left'>
+                  <div class='col-lg-9'>
+                      <p class='card-text'><span class='title'>$songs[$i] ($rand_song_artist[$i])</span></p>
+                  </div>
+                  <div class='col-lg-3 add-button-section'>
+                        <a href='addsong.php?ID={$rand_song_id[$i]}' class='add-button'>+</a>
+                  </div>
+                </div>
+            </div>
+        </div>";
+        }
+        ?>
+    </div>
+    
     
 </div>   
 </body>

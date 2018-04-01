@@ -1,5 +1,4 @@
 <?php
-
     //connecting to database
     require "connect_db.php";
     //Defining User varibables
@@ -26,37 +25,30 @@
             //defining sql query
             $sql_query = "INSERT INTO users (name,email_id,password,mobile_no,gender)
             VALUES('$name','$email','$password','$mobile_number','$gender')";
-
             //Executing the query
             if(mysqli_query($conn,$sql_query)){
             //taking user directly to Home page.
             //defining sql query to get details from the database.
             $sql_query_2 = "SELECT id ,email_id, password FROM users";
-
             $result_array = mysqli_query($conn,$sql_query_2);
-
                 if(mysqli_num_rows($result_array) > 0){
                     //output data of each row
                     while($row = mysqli_fetch_assoc($result_array)){
                         //check if the email and password is present or not
                         $email_fetch = $row["email_id"];
                         $password_fetch = $row["password"];
-
                         if(($email_fetch == $email) && ($password_fetch == $password)){
                                 //Creating a session for the user
                                 session_start();
                                 //defining session variables
                                 $_SESSION["user_id"] = $row["id"];
                                 header ("Location: home.php");
-
                                 } else {
                                 }
-
                     }
                 } else {
                         header ("Location: index.php");
                 }
-
             } else {
             echo "Error: " . $sql_query . "<br>" . mysqli_error($conn);   
             } 
@@ -130,9 +122,12 @@
                     <!-- nav links for Signup and LogIn -->
                     <div class="form-heading">
                         <nav class="nav">
-                          <a class="nav-link" href="Signup.php" style="color: #222222;">SignUp</a>
+                          <a class="nav-link" href="Signup.php" style="color: #222222;">SignUp as Streamer</a>
                           <span style="border: 1px solid #333333;"></span>
-                          <a class="nav-link text-muted" href="index.php">LogIn &gt;&gt;</a>
+                          <a class="nav-link text-muted" href="artistsignup.php">SignUp as Artist</a>
+                          <span style="border: 1px solid #333333;"></span>
+                          <a class="nav-link text-muted texr-right" href="index.php">LogIn &gt;&gt;</a>
+                          
                         </nav>
                     </div>
                     <br>

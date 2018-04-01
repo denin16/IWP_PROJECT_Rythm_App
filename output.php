@@ -1,9 +1,10 @@
 <?php
     //getting the url from the last page
-    $url = $_GET['ID'];
+    $id = $_GET['ID'];
+    echo $id;
 ?>
 <html>
 <body>
-    <img src="images/<?php echo $url ?>">
+    
 </body>
 </html>
