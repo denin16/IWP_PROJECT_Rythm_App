@@ -1,7 +1,7 @@
 <?php
     //connecting to database
     require "connect_db.php";
-    
+
     //Starting the session for user
     session_start();
     
@@ -18,6 +18,35 @@
     //executing_query
     $user_name_row = mysqli_fetch_assoc(mysqli_query($conn,$user_name_query));
     $user_name = $user_name_row["name"];
+
+    //Script to display all the songs present in the database
+    //Defining Query to get all the songs
+    $query =  "SELECT id, name, artist, album,image,file_name, date_released, genre, likes FROM songs WHERE id IN (SELECT song_id FROM added_songs WHERE user_id = '$user_id')";
+
+    //Script to show content in tables
+   
+    //$table_content = "<p class='text-center'>Sorry! No results found!<p>";    
+    if($result = mysqli_query($conn, $query)){
+        if (mysqli_num_rows($result) > 0) {
+        $list_content = "<ul id='playlist' class='list-group'>";
+            while($row = mysqli_fetch_assoc($result)) {
+                $file = $row["file_name"]; 
+                $title = $row["name"];
+                $artist = $row["artist"];
+                $album = $row["album"];
+                $image = $row["image"];
+                $list_content .= "
+                                        <li class='list-group-item' song='$file' cover='$image' artist='$artist'>$title - $artist</li>
+                            ";
+                }
+                $list_content .= "</ul>";
+        } else {
+            $list_content = "<p class='text-center'>Sorry! No Music Available</p>";
+        }
+    } else {
+        //Error in executing the query
+        echo "Error executing the query";
+    }
 ?>
 
 <!DOCTYPE html>
@@ -31,233 +60,20 @@
 
         <!-- Bootstrap CSS CDN -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
-
         <link rel='stylesheet prefetch' href='http://cdn.plyr.io/2.0.13/plyr.css'>
-        
         <!-- BOOTSTRAP CDN -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <!-- Our Custom CSS -->
-        <!--
-        <link href="musicplayerstyle.css" rel="stylesheet" type="text/css">
-        -->
         <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="css/musicstyle.css" type="text/css">
         <!-- Scrollbar Custom CSS -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
         <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
         
         <style>
-            .player-section {
-                margin-top: 0;
-                width: 100%;
+            body {
                 background: #333333;
-                color: #fff;
-            }
-            .column { 
-                width:inherit;
-            }
-
-
-            p { 
-                color:#fff;
-                display:block;
-                font-size:.9rem;
-                font-weight:400;
-                margin:0 0 2px;
-            }
-
-            a,a:visited { 
-                color:#fff;
-                outline:0;
-                text-decoration:none;
-            }
-            a:hover,a:focus { 
-                color:#bbdef5;
-            }
-            p a,p a:visited { 
-                line-height:inherit;
-            }
-
-
-            /* Misc.
-            ================================================== */
-
-            .add-bottom { margin-bottom:0rem !important; }
-            .left { 
-                float:left;
-            }
-            .right { float:right; }
-            .center { text-align:center; }
-
-
-            /* Audio Player Styles
-            ================================================== */
-
-            audio {
-            margin:0 15px 0 14px;
-            width:670px;
-            }
-
-            #mainwrap {
-                text-align: center;
-            }
-
-            #audiowrap,
-            #plwrap {
-            margin:0 auto;
-            padding: 0px;
-            }
-
-            #tracks {
-            position:relative;
-            text-align:center;
-            padding: 0px;
-            }
-
-
-            .album-art {
-                max-width: 150px;
-                max-height: 150px;
-                min-width: 100px;
-                display: inline;
-                width: 10%;
-                padding: 20px;
-                margin-top: -10%;
-            }
-
-            #player-control-info {
-                display: inline-block;
-                text-align: center;
-                width: 75%;
-            }
-            #nowPlay {
-            display:inline;
-            }
-            #npAction {
-            padding: 25px;
-            }
-
-            #npTitle {
-            padding:21px;
-            }
-
-            #plList li {
-            cursor:pointer;
-            display:block;
-            margin:0;
-            padding:21px 0;
-            }
-
-            #plList li:hover {
-            background-color:rgba(0,0,0,.3);
-            }
-
-            .plItem {
-            position:relative;
-            }
-
-            .plTitle {
-            left:50px;
-            overflow:hidden;
-            position:absolute;
-            right:65px;
-            text-overflow:ellipsis;
-            top:0;
-            white-space:nowrap;
-            }
-
-            .plNum {
-            padding-left:21px;
-            width:25px;
-            }
-
-            .plLength {
-            padding-left:21px;
-            position:absolute;
-            right:21px;
-            top:0;
-            }
-
-            .plSel,
-            .plSel:hover {
-            background-color:rgba(0,0,0,.1);
-            color:#fff;
-            cursor:default !important;
-            }
-
-            a[id^="btn"] {
-            border-radius:3px;
-            color:#fff;
-            cursor:pointer;
-            display:inline-block;
-            font-size:2rem;
-            height:35px;
-            line-height:.8;
-            margin:0 20px 20px;
-            padding:10px;
-            text-decoration:none;
-            transition:background .3s ease;
-            width:35px;
-            }
-
-            a[id^="btn"]:last-child {
-            margin-left:-4px;
-            }
-
-            a[id^="btn"]:hover,
-            a[id^="btn"]:active {
-            background-color:rgba(0,0,0,.1);
-            color:#fff;
-            }
-
-            a[id^="btn"]::-moz-focus-inner {
-            border:0;
-            padding:0;
-            }
-
-
-            /* Plyr Overrides
-            ================================================== */
-
-            .plyr--audio .plyr__controls {
-            background-color:inherit;
-            border:none;
-            color:#fff;;
-            padding:3px 25px 10px 5px;
-            width:100%;
-            }
-
-            .plyr--audio .plyr__controls button.tab-focus:focus,
-            .plyr--audio .plyr__controls button:hover,
-            .plyr__play-large {
-            color: #000;
-            background: inherit;
-            }
-
-            .plyr__progress--played, .plyr__volume--display {
-            color:#fff;
-            height: 6px;
-            }
-
-            .plyr--audio .plyr__progress--buffer,
-            .plyr--audio .plyr__volume--display {
-            background:rgba(0,0,0,.1);
-            height: 6px;
-            }
-
-            .plyr--audio .plyr__progress--buffer {
-            color:rgba(0,0,0,.1);
-            }
-            .btn-queue, .btn-queue:focus {
-                background: inherit;
-                outline: none !important;
-            }
-
-            /* Media Queries
-            ================================================== */
-
-            @media only screen and (max-width:850px) {
-                #nowPlay { display:none; }
             }
         </style>
         
@@ -267,14 +83,13 @@
         <div class="wrapper">
             <!-- Sidebar Holder -->
             <nav id="sidebar">
+                
                 <div id="dismiss">
                     <i class="glyphicon glyphicon-arrow-left"></i>
                 </div>
-
                 <div class="sidebar-header">
                     <h3>Rhythm</h3>
                 </div>
-
                 <ul class="list-unstyled components">
                     <p style="font-size: 20px;">File Manager</p>
                     <li>
@@ -300,9 +115,7 @@
                             <li><a href="#">Playlist 3</a></li>
                         </ul>
                     </li>
-        
                 </ul>
-
                 <ul class="list-unstyled">
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Contact Us</a></li>
@@ -311,7 +124,6 @@
 
             <!-- Page Content Holder -->
             <div id="content">
-                
                 <div class="container-fluid" style="padding: 0px;">
                     
                     <!-- Jumbotron for advertisements -->
@@ -332,19 +144,6 @@
                         <div class="col-lg-12">
                             <!-- upper navigation -->
                             <div class="row upper-navigation">
-                                <!-- next/ previous nav buttons -->
-                                <!--
-                                <div class="col-lg-1 up-navigation">
-                                    <div class="text-center next-prev">
-                                        
-                                            <button type="button" class="btn navbar-btn">
-                                                <i class="fas fa-angle-left"></i>  
-                                                <span>Prev</span>
-                                            </button>
-                                        
-                                    </div>
-                                </div>
-                                -->
                                 <div class="col-lg-2"></div>
                                 <div class="col-lg-8 up-navigation" >
                                     <div class="text-center">
@@ -385,19 +184,6 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- next/ previous nav buttons -->
-                                <!--
-                                <div class="col-lg-1 up-navigation">
-                                    <div class="text-center next-prev">
-                                        
-                                            <button type="button" class="btn navbar-btn"> 
-                                                <span>Next</span>
-                                                <i class="fas fa-angle-right"></i> 
-                                            </button>
-                                        
-                                    </div>
-                                </div>
-                                -->
                                 <!-- user menu -->
                                 <div class="col-lg-2 up-navigation text-center">
                                     <!-- User Info -->
@@ -416,56 +202,57 @@
                                     </div>
                                 </div>
                             </div>
-
+                            
                             <!-- main content browsing window -->
                             <iframe src="main.php" class="browsing-window" id="style-1" height="410px" width="100%" name="browsing-window" style="margin-bottom: -6px;"></iframe>
                         </div>
                     </div>
-                    <!-- player section -->
-                    <div class="container-fluid player-section fixed-footer">
-                        <div class="column add-bottom">
+                  
+                    <!-- Audio Player Section -->
+        
+                        <div class="row">
                             
-                            <div id="mainwrap">
-                                <img src="images/taylor.jpg" class="img-responsive img-fluid album-art">
-                                <div id="player-control-info">
-                                    <div id="nowPlay">
-                                        <span class="left" id="npTitle"></span>
-                                        
-                                    </div>
-                                    
-                                    <div id="audiowrap">
-                                        <div id="audio0">
-                                            <audio preload id="audio1" controls="controls">Your browser does not support HTML5 Audio!</audio>
-                                        </div>
-                                        <div id="tracks">
-                                            <a id="btnPrev"><i class="fas fa-chevron-left"></i></a>
-                                            <a id="btnNext"><i class="fas fa-chevron-right"></i></a>
-
-                                            <div>
-                                            Songs in Queue
-                                                <button type="button" class="btn btn-queue" data-toggle="collapse" data-target="#playlist-section"><i class="fas fa-list"></i></button>
-                                            </div>
-
-                                        </div>
-
-                                    </div>
-                                </div>
-                                
-                                
-                                
-                                <br>
-                                <div id="playlist-section" class="collapse">
-                                    <div id="plwrap">
-                                        <ul id="plList"></ul>
-                                    </div>
+                            <div class="col-lg-2 audio-section">
+                                <div id="audio-image text-center">
+                                    <img class="cover" width="150px" height="200px">
                                 </div>
                             </div>
+                            <div class="col-lg-8 audio-section-1">
+                                <div id="audio-player">
+                                    <div id="audio-info">
+                                        <span class="artist"></span>-<span class="title"></span>
+                                    </div>
+                                    <input id="volume" type="range" min="0" max="10" value="5">
+                                    <br>
+                                    <div class="text-center">
+                                    <div id="audio-buttons">
+                                        <button id="prev"></button>
+                                        <button id="play"></button>
+                                        <button id="pause"></button>
+                                        <button id="stop"></button>
+                                        <button id="next"></button>
+                                    </div>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <div id="tracker">
+                                        <div id="progressbar">
+                                            <span id="progress"></span>
+                                        </div>
+                                        <span id="duration"></span>
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br><br>
+                                    <ul id="playlist" class="list-group">
+                                        <?php echo $list_content ?>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-2"></div>
                         </div>
                     </div>
-
+                
                 </div>
             
-            </div>
         </div>
         
 
@@ -499,15 +286,14 @@
                 });
             });
         </script>
-        <!--
+        
+        <script src="js/musicscript.js"></script>
+        
         <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-        -->
+        <!--
         <script src='http://api.html5media.info/1.1.8/html5media.min.js'></script>
         
         <script src='http://cdn.plyr.io/2.0.13/plyr.js'></script>
-        
-
-
-        <script  src="musicplayer.js"></script>
+        -->
     </body>
 </html>

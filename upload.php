@@ -18,7 +18,7 @@ $upload = 1;
 if(isset($_POST['submit']))
 {
     //Uploading both mp3 and jpg file
-    $target_dir1 = "songs/";
+    $target_dir1 = "media/";
     $targetfile1 = $target_dir1 . basename($_FILES["songupload"]["name"]); 
 
     $target_dir2 = "images/albums_cover_art/";
